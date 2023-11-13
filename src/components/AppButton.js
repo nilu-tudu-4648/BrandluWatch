@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   bntstyle: {
     borderRadius: SIZES.base1*.7,
     ...STYLES,
-    height: SIZES.h1 * 1.4,
+    height: SIZES.h1 * 1.6,
     marginHorizontal: 3,
     paddingHorizontal: 10,
     backgroundColor: COLORS.background,

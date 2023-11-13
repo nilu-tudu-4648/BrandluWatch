@@ -1,59 +1,37 @@
-import { BackHandler, StyleSheet, View } from "react-native";
-import React from "react";
-import { AppButton, AppView } from "../components";
-import { SIZES, STYLES } from "../constants/theme";
-import { Image } from "react-native";
-import { NAVIGATION } from "../constants/routes";
+import { Image } from 'react-native';
+import React from 'react';
 
-const WelcomeScreen = ({ navigation }) => {
-  BackHandler.addEventListener(
-    "hardwareBackPress",
-    () => {
-      BackHandler.exitApp();
-      return () => true;
-    },
-    []
-  );
-  return (
-    <AppView>
-      <View
-        style={{
-          ...STYLES,
-          flex: 0.5,
-        }}
-      >
-        <Image
-          source={require("../../assets/bo.jpg")}
-          style={{ width: "50%", height: 150, resizeMode: "contain" }}
+import Onboarding from 'react-native-onboarding-swiper';
+import { useNavigation } from '@react-navigation/native';
+import { NAVIGATION } from '../constants/routes';
+
+const WelcomeScreen = () => {
+    const navigation = useNavigation()
+    return(
+        <Onboarding
+            onDone={() => navigation.navigate(NAVIGATION.LOGIN)}
+            pages={[
+                {
+                    backgroundColor: '#fff',
+                    image: <Image source={require('../../assets/circle.png')} />,
+                    title: 'Onboarding',
+                    subtitle: 'Done with React Native Onboarding Swiper',
+                },
+                {
+                    backgroundColor: '#fe6e58',
+                    image: <Image source={require('../../assets/square.png')} />,
+                    title: 'The Title',
+                    subtitle: 'This is the subtitle that sumplements the title.',
+                },
+                {
+                    backgroundColor: '#999',
+                    image: <Image source={require('../../assets/triangle.png')} />,
+                    title: 'Triangle',
+                    subtitle: "Beautiful, isn't it?",
+                },
+            ]}
         />
-      </View>
-      <View
-        style={{
-          ...STYLES,
-          flex: 0.5,
-          justifyContent: "flex-end",
-          paddingVertical: SIZES.padding,
-        }}
-      >
-        <AppButton
-          title="REGISTER"
-          style={{ marginVertical: SIZES.h4 }}
-          onPress={() =>
-            navigation.navigate(NAVIGATION.REGISTER, { register: true })
-          }
-        />
-        <AppButton
-          title="LOGIN"
-          style={{ marginVertical: SIZES.h4 }}
-          onPress={() =>
-            navigation.navigate(NAVIGATION.LOGIN, { register: false })
-          }
-        />
-      </View>
-    </AppView>
-  );
+    )
 };
 
 export default WelcomeScreen;
-
-const styles = StyleSheet.create({});

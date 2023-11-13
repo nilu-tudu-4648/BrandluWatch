@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ScrollView, StyleSheet, View, Image, BackHandler } from "react-native";
+import { ScrollView, StyleSheet, View, Image, BackHandler, Pressable } from "react-native";
 import { useForm } from "react-hook-form";
-import { COLORS, SIZES } from "../constants/theme";
+import { COLORS, FSTYLES, SIZES } from "../constants/theme";
 import { AppButton } from "../components";
 import AppLoader from "../components/AppLoader";
 import AppText from "../components/AppText";
@@ -133,6 +133,12 @@ const LoginScreen = ({ navigation }) => {
             name="password"
             secureTextEntry={true}
           />
+          <View style={FSTYLES}>
+        <AppText size={1.5}>Forgot Pin</AppText>
+        <Pressable onPress={()=>navigation.navigate(NAVIGATION.REGISTER)}>
+        <AppText size={1.5}>New User ? Sign Up</AppText>
+        </Pressable>
+          </View>
         </View>
         <View style={{ flex: 0.4 }} />
       </ScrollView>

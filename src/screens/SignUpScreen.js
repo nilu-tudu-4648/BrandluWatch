@@ -5,6 +5,7 @@ import {
   View,
   Image,
   ToastAndroid,
+  BackHandler,
 } from "react-native";
 import { useForm } from "react-hook-form";
 import { COLORS, SIZES } from "../constants/theme";
@@ -61,7 +62,14 @@ const SignUpScreen = ({ navigation }) => {
 
   const phonePattern = /^[6-9][0-9]{9}$/;
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
+  BackHandler.addEventListener(
+    "hardwareBackPress",
+    () => {
+      navigation.navigate(NAVIGATION.LOGIN);
+      return () => true;
+    },
+    []
+  );
   return (
     <View style={styles.container}>
       <AppLoader loading={loading} />
