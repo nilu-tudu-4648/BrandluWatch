@@ -44,7 +44,8 @@ const LoginScreen = ({ navigation }) => {
   }
 
   const handleSignIn = async (phone, password) => {
-    const userExists = await getUser(phone);
+    // const userExists = await getUser(phone);
+    const userExists ={"email": "nilunilesh84@gmail.com", "firstName": "Nilesh", "lastName": "Mon", "mobile": "9155186701", "password": "123"}
     console.log(userExists, "userExists");
     if (!userExists) {
       showToast("User does not exist");

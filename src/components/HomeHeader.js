@@ -59,15 +59,10 @@ const styles = {
   headerContent: {
     ...FSTYLES,
     padding: SIZES.h6,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
   },
   userInfo: {
     ...FSTYLES,
-    width: "50%",
-    flexDirection: "row",
-    alignItems: "center",
+    width: "42%",
   },
   userImage: {
     height: 45,

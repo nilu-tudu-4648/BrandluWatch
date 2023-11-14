@@ -9,6 +9,7 @@ const WelcomeScreen = () => {
     const navigation = useNavigation()
     return(
         <Onboarding
+        onSkip={() => navigation.navigate(NAVIGATION.LOGIN)}
             onDone={() => navigation.navigate(NAVIGATION.LOGIN)}
             pages={[
                 {

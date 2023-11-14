@@ -11,12 +11,14 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { NAVIGATION } from "./routes";
 // import { db } from "../../firebaseConfig";
 
-export const logoutUser = async (dispatch) => {
+export const logoutUser = async (dispatch,navigation) => {
   try {
-    dispatch(setLoginUser(null));
     await AsyncStorage.removeItem("loggedInUser");
+    dispatch(setLoginUser(null));
+    navigation.navigate(NAVIGATION.LOGIN)
     // await AsyncStorage.clear();
   } catch (error) {
     console.log(error);
